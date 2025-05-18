@@ -82,12 +82,15 @@ public class ChessImageView extends View {
 			}
 		}
     	
-    	Bitmap bmp;
+        Bitmap bmp;
         ImageCacheObject ico = _ico;
-        
+
         // first draw field background
-        if(ico == null)
-        	Log.e("err", "err");
+        if(ico == null) {
+                // Image cache object not yet initialised, skip drawing to
+                // avoid NullPointerException.
+                return;
+        }
         
         //_paint.setColor(Color.TRANSPARENT);
         if(hasFocus()){
